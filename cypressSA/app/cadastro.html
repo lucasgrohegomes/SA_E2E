@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Sign-Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Sign-Up</h1>
+        <p>Registre-se para aproveitar os nossos produtos!</p>
+
+        <form id="formularioCadastro" onsubmit="cadastrarUsuario(event)">
+            <input id="usrName" placeholder="Usuário" type="text" >
+            <input id="usrMail" placeholder="Email" type="email">
+            <input id="usrPass" placeholder="Senha" type="password">
+            <input id="usrCPass" placeholder="Confirme a Senha" type="password">
+
+            <button id="registrar" type="submit">Registrar</button>
+            <br>
+            <a href="login.html">Sign-In</a>
+        </form>
+    </div>
+
+    <script>
+        function cadastrarUsuario(event) {
+            event.preventDefault();
+
+            const usuario = document.getElementById('usrName').value;
+            const email = document.getElementById('usrMail').value;
+            const senha = document.getElementById('usrPass').value;
+            const confirmarSenha = document.getElementById('usrCPass').value;
+
+            if (!usuario || !email || !senha || !confirmarSenha) {
+                alert('Todos os campos são obrigatórios.');
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                alert('Preencha o campo "Confirme a Senha" corretamente.');
+                return;
+            }
+
+            alert('Cadastro realizado com sucesso!');
+            document.getElementById('formularioCadastro').reset();
+
+            window.location.href = 'loja.html';
+        }
+    </script>
+</body>
+</html>

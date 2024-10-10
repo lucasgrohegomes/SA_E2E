@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Sign-In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Sign-In</h1>
+        <p>Bem vindo novamente, estavamos com saudade!</p>
+
+        <form id="formularioLogin" onsubmit="registrarUsuario(event)">
+            <input id="usrName" placeholder="Usuário" type="text">
+            <input id="usrPass" placeholder="Senha" type="password">
+
+            <button id="entrar" type="submit">Entrar</button>
+            <br>
+            <a href="cadastro.html">Sign-Up</a>
+        </form>
+    </div>
+
+    <script>
+        function registrarUsuario (event) {
+            event.preventDefault();
+
+            const usuario = document.getElementById('usrName').value;
+            const senha = document.getElementById('usrPass').value;
+
+            if (usuario === 'admin' && senha === 'admin') {
+                alert('Login efetuado!');
+
+                window.location.href = 'loja.html';
+            }
+            else {
+                alert('Nome de Usuário ou Senha Incorretos.');
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

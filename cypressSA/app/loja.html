@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Luquistica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Loja Luquistica - Lucas Grohe Gomes 3°C</h1>
+        <a href="login.html" id="header-link">Sair</a>
+    </header>
+
+    <form class="search-container" onsubmit="">
+        <input type="text" id="search-input" placeholder="Pesquise camisetas...">
+        <button type="button" onclick="pesquisarProduto(event)">Pesquisar</button>
+    </form>
+
+    <div class="gallery-container">
+        <img id="camisa-azul" class="camisa" src="https://m.media-amazon.com/images/I/41n3Rs6KBML._AC_SX522_.jpg">
+
+        <img id="camisa-branca" class="camisa" src="https://m.media-amazon.com/images/I/41vJksANb7L._AC_SX522_.jpg">
+
+        <img id="camisa-cinza" class="camisa" src="https://m.media-amazon.com/images/I/4168B8NulSL._AC_SX522_.jpg">
+
+        <img id="camisa-preta" class="camisa" src="https://m.media-amazon.com/images/I/41NXWPtQkcL._AC_SX522_.jpg">
+    </div>
+
+    <script>
+        function pesquisarProduto (event) {
+            event.preventDefault();
+
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const camisetas = document.getElementsByClassName('camisa')
+
+            for (let i = 0; i < camisetas.length; i++) {
+                const corCamisa = camisetas[i].id.toLowerCase();
+                if (corCamisa.includes(input)) {
+                    camisetas[i].style.display = "block";
+                } else {
+                    camisetas[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
